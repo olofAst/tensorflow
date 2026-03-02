@@ -98,6 +98,7 @@ bool IsObjectPresent(ObjectType type, const TensorObject& obj) {
     case ObjectType::UNKNOWN:
       return false;
   }
+  return false;
 }
 
 bool IsObjectInitialized(const TensorObject& obj) {

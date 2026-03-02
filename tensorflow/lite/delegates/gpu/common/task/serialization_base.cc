@@ -76,6 +76,7 @@ data::DataType ToFB(DataType type) {
     case DataType::UNKNOWN:
       return data::DataType::UNKNOWN;
   }
+  return data::DataType::UNKNOWN;
 }
 
 data::MemoryType ToFB(MemoryType type) {
@@ -87,6 +88,7 @@ data::MemoryType ToFB(MemoryType type) {
     case MemoryType::LOCAL:
       return data::MemoryType::LOCAL;
   }
+  return data::MemoryType::GLOBAL;
 }
 
 data::TensorStorageType ToFB(TensorStorageType type) {
@@ -106,6 +108,7 @@ data::TensorStorageType ToFB(TensorStorageType type) {
     case TensorStorageType::UNKNOWN:
       return data::TensorStorageType::UNKNOWN;
   }
+  return data::TensorStorageType::UNKNOWN;
 }
 
 data::Layout ToFB(Layout type) {
@@ -156,6 +159,7 @@ DataType ToEnum(data::DataType type) {
     case data::DataType::UNKNOWN:
       return DataType::UNKNOWN;
   }
+  return DataType::UNKNOWN;
 }
 
 AccessType ToEnum(data::AccessType type) {
@@ -167,6 +171,7 @@ AccessType ToEnum(data::AccessType type) {
     case data::AccessType::READ_WRITE:
       return AccessType::READ_WRITE;
   }
+  return AccessType::READ_WRITE;
 }
 
 MemoryType ToEnum(data::MemoryType type) {
@@ -178,6 +183,7 @@ MemoryType ToEnum(data::MemoryType type) {
     case data::MemoryType::LOCAL:
       return MemoryType::LOCAL;
   }
+  return MemoryType::GLOBAL;
 }
 
 TensorStorageType ToEnum(data::TensorStorageType type) {
@@ -197,6 +203,7 @@ TensorStorageType ToEnum(data::TensorStorageType type) {
     case data::TensorStorageType::UNKNOWN:
       return TensorStorageType::UNKNOWN;
   }
+  return TensorStorageType::UNKNOWN;
 }
 
 Layout ToEnum(data::Layout type) {
@@ -227,6 +234,7 @@ data::CalculationsPrecision ToFB(CalculationsPrecision type) {
     case CalculationsPrecision::F16:
       return data::CalculationsPrecision::F16;
   }
+  return data::CalculationsPrecision::F32;
 }
 
 data::TensorToGrid ToFB(TensorToGrid type) {
@@ -242,6 +250,7 @@ data::TensorToGrid ToFB(TensorToGrid type) {
     case TensorToGrid::kBToX_YIs1_ZIs1:
       return data::TensorToGrid::B_TO_X_Y_IS_1_Z_IS_1;
   }
+  return data::TensorToGrid::CUSTOM;
 }
 
 data::CompilerOptions ToFB(CompilerOptions type) {
@@ -261,6 +270,7 @@ data::CompilerOptions ToFB(CompilerOptions type) {
     case CompilerOptions::kClRegisterAllocation64:
       return data::CompilerOptions::CL_REGISTER_ALLOCATION_64;
   }
+  return data::CompilerOptions::CL_FAST_RELAXED_MATH;
 }
 
 CalculationsPrecision ToEnum(data::CalculationsPrecision type) {
@@ -272,6 +282,7 @@ CalculationsPrecision ToEnum(data::CalculationsPrecision type) {
     case data::CalculationsPrecision::F16:
       return CalculationsPrecision::F16;
   }
+  return CalculationsPrecision::F32;
 }
 
 TensorToGrid ToEnum(data::TensorToGrid type) {
@@ -287,6 +298,7 @@ TensorToGrid ToEnum(data::TensorToGrid type) {
     case data::TensorToGrid::B_TO_X_Y_IS_1_Z_IS_1:
       return TensorToGrid::kBToX_YIs1_ZIs1;
   }
+  return TensorToGrid::kCustom;
 }
 
 CompilerOptions ToEnum(data::CompilerOptions type) {
@@ -306,6 +318,7 @@ CompilerOptions ToEnum(data::CompilerOptions type) {
     case data::CompilerOptions::CL_REGISTER_ALLOCATION_64:
       return CompilerOptions::kClRegisterAllocation64;
   }
+  return CompilerOptions::kClFastRelaxedMath;
 }
 
 }  // namespace

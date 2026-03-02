@@ -242,6 +242,7 @@ TfLiteStatus EvalFloat(KernelType kernel_type, TfLiteContext* context,
           CpuBackendContext::GetFromContext(context));
     }
   }
+  return kTfLiteError;
 }
 
 TfLiteStatus Eval(KernelType kernel_type, TfLiteContext* context,
