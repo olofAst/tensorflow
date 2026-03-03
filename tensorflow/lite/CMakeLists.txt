@@ -760,6 +760,11 @@ if(TFLITE_ENABLE_XNNPACK)
     PUBLIC
       $<$<CONFIG:Debug>:XNN_LOG_LEVEL=2>
   )
+  # Disable KleidiAI explicitly (GitLab hash instability + not needed)
+  target_compile_definitions(tensorflow-lite
+    PUBLIC
+      TFLITE_ENABLE_KLEIDIAI=0
+  )
 endif()
 
 # The install targets.
