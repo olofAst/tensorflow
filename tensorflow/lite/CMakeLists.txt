@@ -755,6 +755,13 @@ target_compile_options(tensorflow-lite
 )
 add_library(${PROJECT_NAME}::tensorflowlite ALIAS tensorflow-lite)
 
+if(TFLITE_ENABLE_XNNPACK)
+  target_compile_definitions(tensorflow-lite
+    PUBLIC
+      $<$<CONFIG:Debug>:XNN_LOG_LEVEL=2>
+  )
+endif()
+
 # The install targets.
 if(TFLITE_ENABLE_INSTALL)
   install(
