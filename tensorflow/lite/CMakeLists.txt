@@ -767,6 +767,20 @@ if(TFLITE_ENABLE_XNNPACK)
   )
 endif()
 
+# ---- vcpkg portability patch ----
+
+# Export symbols from tensorflow-lite.dll so XNNPACK delegate symbols are visible
+if(WIN32)
+  set_target_properties(tensorflow-lite PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
+
+# Bake ALL Abseil static libs into libtensorflow-lite.so
+if(UNIX AND NOT APPLE)
+  get_target_property(_tflite_links tensorflow-lite LINK_LIBRARIES)
+  target_link_libraries(tensorflow-lite PRIVATE -Wl,--whole-archive ${_tflite_links} -Wl,--no-whole-archive)
+endif()
+
+
 # The install targets.
 if(TFLITE_ENABLE_INSTALL)
   install(

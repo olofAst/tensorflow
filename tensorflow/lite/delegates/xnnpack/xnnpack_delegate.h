@@ -19,6 +19,13 @@ limitations under the License.
 #include <stddef.h>
 #include <stdint.h>
 
+
+#ifdef _WIN32
+#define TFL_CAPI_EXPORT __declspec(dllexport)
+#else
+#define TFL_CAPI_EXPORT
+#endif
+
 #include "tensorflow/lite/core/c/common.h"
 
 #ifdef __cplusplus
