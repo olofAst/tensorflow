@@ -1,5 +1,5 @@
 ################################################################################
-FROM ubuntu:22.04@sha256:0e5e4a57c2499249aafc3b40fcd541e9a456aab7296681a3994d631587203f97 as builder
+FROM ubuntu:22.04@sha256:3ba65aa20f86a0fad9df2b2c259c613df006b2e6d0bfcc8a146afb8c525a9751 as builder
 ################################################################################
 
 # Install devtoolset build dependencies
